@@ -5,9 +5,11 @@ const conn = require('./connection');
 
 // FUNCTIONS
 async function selectAll() {
-    const [data] = await conn.query('SELECT * FROM burgers');
+    const [data] = await conn.query('SELECT * FROM burgers WHERE devoured = false');
 
     console.table(data);
+
+    return data;
 }
 
 async function insertOne(burger) {
@@ -15,8 +17,6 @@ async function insertOne(burger) {
         [
             burger
         ]);
-
-    await selectAll();
 }
 
 async function updateOne(burger) {
@@ -25,11 +25,13 @@ async function updateOne(burger) {
             burger,
             burger.id
         ]);
-
-    await selectAll();
 }
 
 
 
-// FUNCTION CALLS
-updateOne({ id: 1, burger_name: 'McFatty', devoured: true });
+// EXPORTS
+module.exports = {
+    selectAll: selectAll,
+    insertOne: insertOne,
+    updateOne: updateOne
+};

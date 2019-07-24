@@ -1,0 +1,15 @@
+<h1>The Burger Logger!</h1>
+
+<form action="/newBurger" method="POST">
+    Burger Name:<br>
+    <input type="text" name="burger_name" placeholder="Big Mac">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<ul class="burgerDisplay">
+    {{#each burgers}}
+    <li>{{burger_name}}</li>
+    <button data-id={{id}} class="eatBurger">Eat</button>
+    {{/each}}
+</ul>
