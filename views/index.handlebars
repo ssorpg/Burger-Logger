@@ -13,3 +13,9 @@
     <button data-id={{id}} class="eatBurger">Eat</button>
     {{/each}}
 </ul>
+
+<script type="text/javascript">
+    $('.eatBurger').on('click', event => {
+        $(event.target).data('id');
+    })
+</script>
