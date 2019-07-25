@@ -1,6 +1,6 @@
 // REQUIRES
-const keys = require('./keys');
 const mysql = require('mysql2/promise');
+const keys = require('./keys');
 
 
 

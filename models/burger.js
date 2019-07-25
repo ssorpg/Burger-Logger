@@ -1,5 +1,5 @@
 // REQUIRES
-const orm = require('../config/orm');
+const orm = require('../database/orm');
 
 
 
@@ -8,8 +8,8 @@ async function getAllBurgers() {
     return await orm.selectAll('burgers');
 }
 
-async function getBurgerByID(burgerID) {
-    return await orm.selectWhere('burgers', 'id', burgerID);
+async function getLastBurger() {
+    return await orm.selectLastInsert('burgers');
 }
 
 async function newBurger(burger) {
@@ -25,7 +25,7 @@ async function eatBurger(burgerID) {
 // EXPORTS
 module.exports = {
     getAllBurgers: getAllBurgers,
-    getBurgerByID: getBurgerByID,
+    getLastBurger: getLastBurger,
     newBurger: newBurger,
     eatBurger: eatBurger
 };

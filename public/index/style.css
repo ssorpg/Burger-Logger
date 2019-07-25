@@ -1,0 +1,44 @@
+h1, h3 {
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(231, 231, 231);
+    padding: 3px;
+    min-height: 100px;
+}
+.eatenDisplay {
+    column-count: 3;
+    column-gap: 10px;
+}
+@media (max-width: 768px) { /* Mobile responsive! */
+    .eatenDisplay {
+        column-count: 2;
+    }
+}
+@media (max-width: 576px) {
+    .eatenDisplay {
+        column-count: 1;
+    }
+}
+li {
+    background-color: rgb(210, 180, 140);
+    padding: 4px;
+}
+button {
+    border: none;
+    background: rgb(52, 152, 219);
+    background-image: linear-gradient(to bottom, rgb(52, 152, 219), rgb(41, 128, 185));
+    font-family: Arial;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-right: 2%;
+}
+button:hover {
+    background: rgb(60, 176, 253);
+    background-image: linear-gradient(to bottom, rgb(60, 176, 253), rgb(52, 152, 219));
+    text-decoration: none;
+}

@@ -3,12 +3,12 @@ USE burgers_db;
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ('Big Mac', false),
+    ('Luger Burger', false),
     ('Big Mac', true),
-    ('Cheeseburger', false),
+    ('Double Animal Style', false),
     ('Cheeseburger', true),
-    ('Onion and Avocado', false),
-    ('Onion and Avocado', true);
+    ('The Company Burger', false),
+    ('The Original Burger', true);
 
 SELECT *
 FROM burgers;

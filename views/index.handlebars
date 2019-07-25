@@ -1,45 +1,40 @@
-<style type="text/css">
-    ul {
-        list-style-type: none;
-    }
-    li {
-        background-color: tan;
-        padding: 2px;
-    }
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/index/style.css" type="text/css">
 </style>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <h1>The Burger Logger!</h1>
-    </div>
+<div class="row">
+    <form class="col-lg-3 newBurger">
+        New Burger:<br>
+        <input class="mt-2" type="text" name="burger_name" placeholder="Big Mac">
+        <br>
+        <input class="mt-2" type="submit" value="Cook it!">
+    </form>
+</div>
 
-    <div class="row">
-        <form class="col-3 newBurger">
-            New Burger:<br>
-            <input class="mt-2" type="text" name="burger_name" placeholder="Big Mac">
-            <br>
-            <input class="mt-2" type="submit" value="Submit">
-        </form>
-    </div>
-
-    <div class="row mt-4 justify-content-center">
-        <ul class="col-3 uneatenDisplay">
-            <h3>Fresh Burgers</h3>
+<div class="row mt-4 justify-content-center">
+    <div class="col-lg-3">
+        <h3>Fresh Burgers</h3>
+        <ul class="uneatenDisplay">
             {{#each uneatenBurgers}}
-            <li class="mt-2">
+            <li class="mb-2">
                 <button data-id={{id}} class="eatBurger">Eat</button>
                 {{burger_name}}
             </li>
             {{/each}}
         </ul>
+    </div>
 
-        <ul class="col-3 eatenDisplay">
-            <h3>Eaten Burgers</h3>
+    <div class="col-lg-6">
+        <h3>Eaten Burgers</h3>
+        <ul class="eatenDisplay">
             {{#each eatenBurgers}}
-            <li class="mt-2">{{burger_name}}</li>
+            <li class="mb-2">
+                {{burger_name}}
+            </li>
             {{/each}}
         </ul>
     </div>
 </div>
 
-<script src="client.js"></script>
+<!-- Client Side JS Handling -->
+<script src="/index/client.js"></script>

@@ -1,5 +1,5 @@
 // REQUIRES
-const conn = require('./connection');
+const conn = require('../config/connection');
 
 
 
@@ -9,14 +9,9 @@ async function selectAll(table) {
     return data;
 }
 
-async function selectWhere(table, columnCheck, columnCheckVal) {
-    const [data] = await conn.query('SELECT * FROM ?? WHERE ?? = ?',
-        [
-            table,
-            columnCheck,
-            columnCheckVal
-        ]);
-    return data;
+async function selectLastInsert(table) {
+    const [data] = await conn.query('SELECT * FROM ?? WHERE id = (SELECT LAST_INSERT_ID())', [table]);
+    return data[0];
 }
 
 async function insertOne(table, item) {
@@ -43,7 +38,7 @@ async function updateOneWhere(table, columnMod, columnModVal, columnCheck, colum
 // EXPORTS
 module.exports = {
     selectAll: selectAll,
-    selectWhere: selectWhere,
+    selectLastInsert: selectLastInsert,
     insertOne: insertOne,
     updateOneWhere: updateOneWhere
 };

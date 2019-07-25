@@ -16,11 +16,6 @@ app.set('view engine', 'handlebars');
 
 
 
-// PORT
-const PORT = process.env.PORT || 8080;
-
-
-
 // ROUTING
 const routes = require('./controllers/burger_controllers');
 
@@ -29,6 +24,9 @@ app.use(routes);
 
 
 // SERVER INIT
-app.listen(PORT, function () {
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
     console.log('Server listening on: http://localhost:' + PORT);
+    console.log('');
 });
