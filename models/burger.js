@@ -5,15 +5,19 @@ const orm = require('../config/orm');
 
 // FUNCTIONS
 async function getAllBurgers() {
-    return await orm.selectAll();
+    return await orm.selectAll('burgers');
 }
 
-async function makeNewBurger(burger) {
-    await orm.insertOne(burger);
+async function getBurgerByID(burgerID) {
+    return await orm.selectWhere('burgers', 'id', burgerID);
 }
 
-async function eatBurger(burger) {
-    await orm.insertOne(burger);
+async function newBurger(burger) {
+    await orm.insertOne('burgers', burger);
+}
+
+async function eatBurger(burgerID) {
+    await orm.updateOneWhere('burgers', 'devoured', true, 'id', burgerID);
 }
 
 
@@ -21,6 +25,7 @@ async function eatBurger(burger) {
 // EXPORTS
 module.exports = {
     getAllBurgers: getAllBurgers,
-    makeNewBurger: makeNewBurger,
+    getBurgerByID: getBurgerByID,
+    newBurger: newBurger,
     eatBurger: eatBurger
 };

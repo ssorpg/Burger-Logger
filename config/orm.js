@@ -4,26 +4,37 @@ const conn = require('./connection');
 
 
 // FUNCTIONS
-async function selectAll() {
-    const [data] = await conn.query('SELECT * FROM burgers WHERE devoured = false');
-
-    console.table(data);
-
+async function selectAll(table) {
+    const [data] = await conn.query('SELECT * FROM ??', [table]);
     return data;
 }
 
-async function insertOne(burger) {
-    await conn.query('INSERT INTO burgers SET ?',
+async function selectWhere(table, columnCheck, columnCheckVal) {
+    const [data] = await conn.query('SELECT * FROM ?? WHERE ?? = ?',
         [
-            burger
+            table,
+            columnCheck,
+            columnCheckVal
+        ]);
+    return data;
+}
+
+async function insertOne(table, item) {
+    await conn.query('INSERT INTO ?? SET ?',
+        [
+            table,
+            item
         ]);
 }
 
-async function updateOne(burger) {
-    await conn.query('UPDATE burgers SET ? WHERE id = ?',
+async function updateOneWhere(table, columnMod, columnModVal, columnCheck, columnCheckVal) {
+    await conn.query('UPDATE ?? SET ?? = ? WHERE ?? = ?',
         [
-            burger,
-            burger.id
+            table,
+            columnMod,
+            columnModVal,
+            columnCheck,
+            columnCheckVal
         ]);
 }
 
@@ -32,6 +43,7 @@ async function updateOne(burger) {
 // EXPORTS
 module.exports = {
     selectAll: selectAll,
+    selectWhere: selectWhere,
     insertOne: insertOne,
-    updateOne: updateOne
+    updateOneWhere: updateOneWhere
 };
