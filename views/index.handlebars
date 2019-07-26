@@ -17,11 +17,9 @@
         <ul class="uneatenDisplay">
             {{#each uneatenBurgers}}
             <li class="mb-2">
-                <div class="leftLi">
-                    <button data-id={{id}} class="eatBurger">Eat</button>
-                    <img src="/index/burger.png">
-                </div>
-                <div class="rightLi">
+                <button data-id={{id}} class="eatBurger">Eat</button>
+                <img src="/index/burger.png">
+                <div>
                     {{burger_name}}
                 </div>
             </li>
@@ -34,10 +32,8 @@
         <ul class="eatenDisplay">
             {{#each eatenBurgers}}
             <li class="mb-2">
-                <div class="leftLi">
-                    <img src="/index/burger.png">
-                </div>
-                <div class="rightLi">
+                <img src="/index/burger.png">
+                <div>
                     {{burger_name}}
                 </div>
             </li>

@@ -9,9 +9,12 @@ $(document).ready(function () {
             .then((res) => {
                 const newLi = $('<li>') // TODO: client Handlebars
                     .html(`
-                    <button data-id=${res.id} class="eatBurger">Eat</button>
-                    ${res.burger_name}
-                `)
+                        <button data-id=${res.id} class="eatBurger">Eat</button>
+                        <img src="/index/burger.png">
+                        <div>
+                            ${res.burger_name}
+                        </div>
+                    `)
                     .addClass('mb-2');
 
                 $('.uneatenDisplay').append(newLi);
