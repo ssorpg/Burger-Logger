@@ -2,13 +2,13 @@
 
 Burgers taste great! But walking to a restaurant to order one can sometimes take too much time, effort, and money. Burger Logger is here to save the day! Eat virtual burgers from the comfort of your own home.
 
-[![A video of The Burger Logger being used by the developer.](https://www.youtube.com/watch?v=ND4lxZeycQY/0.jpg)](https://www.youtube.com/watch?v=ND4lxZeycQY)
+[![A video of The Burger Logger being used by the developer.](https://img.youtube.com/vi/ND4lxZeycQY/0.jpg)](https://www.youtube.com/watch?v=ND4lxZeycQY)
 
 <br>
 
 <h2>Online Instructions</h2>
 
-Visit https://secure-depths-86726.herokuapp.com/ and eat as many burgers as you want with an already set-up Burger Logger!
+Visit https://secure-depths-86726.herokuapp.com/ and eat as many burgers as you want with a preset Burger Logger!
 
 <br>
 
