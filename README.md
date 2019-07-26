@@ -18,16 +18,21 @@ Visit https://secure-depths-86726.herokuapp.com/ and eat as many burgers as you 
 2. In the 'config' folder, create a 'keys.js' file with the following format:
 
 >// MYSQL KEY
+
 >const mySQL = {
+
 >    username: 'yourusername',
+
 >    password: 'yourpassword'
+
 >};
->
->
->
+
 >// EXPORTS
+
 >module.exports = {
+
 >    mySQL: mySQL
+
 >};
 
 3. Run the 'schema.sql' and 'seeds.sql' files either in MySQL Workbench, or in your MySQL terminal.
