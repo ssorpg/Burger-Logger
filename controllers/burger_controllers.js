@@ -12,16 +12,28 @@ const burger = require('../models/burger');
 // ROUTES
 app.get('/', async (req, res) => {
     try {
-        const burgers = await burger.getAllBurgers();
+        const resBurgers = await burger.getAllBurgers();
 
-        const uneatenBurgers = burgers.filter(burger => { return !burger.devoured; });
-        const eatenBurgers = burgers.filter(burger => { return burger.devoured; });
+        const uneatenBurgers = resBurgers.filter(burger => { return !burger.devoured; });
+        const eatenBurgers = resBurgers.filter(burger => { return burger.devoured; });
 
         res.status(200).render('index',
             {
                 uneatenBurgers: uneatenBurgers,
                 eatenBurgers: eatenBurgers
             });
+    }
+    catch (err) {
+        res.status(500).end();
+        throw err;
+    }
+});
+
+app.get('/api/burgers', async (req, res) => {
+    try {
+        const resBurgers = await burger.getAllBurgers();
+
+        res.status(200).json(resBurgers);
     }
     catch (err) {
         res.status(500).end();
@@ -37,9 +49,21 @@ app.post('/api/burgers', async (req, res) => {
     try {
         await burger.newBurger(req.body);
 
-        const toRender = await burger.getLastBurger();
+        const resBurger = await burger.getLastBurger();
 
-        res.status(200).json(toRender);
+        res.status(200).json(resBurger);
+    }
+    catch (err) {
+        res.status(500).end();
+        throw err;
+    }
+});
+
+app.get('/api/burgers/:id', async (req, res) => {
+    try {
+        const resBurger = await burger.getBurgerByID(req.params.id);
+
+        res.status(200).json(resBurger);
     }
     catch (err) {
         res.status(500).end();

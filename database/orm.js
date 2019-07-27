@@ -9,6 +9,16 @@ async function selectAll(table) {
     return data;
 }
 
+async function selectOneWhere(table, columnCheck, columnCheckVal) {
+    const [data] = await conn.query('SELECT * FROM ?? WHERE ?? = ?',
+        [
+            table,
+            columnCheck,
+            columnCheckVal
+        ]);
+    return data[0];
+}
+
 async function selectLastInsert(table) {
     const [data] = await conn.query('SELECT * FROM ?? WHERE id = (SELECT LAST_INSERT_ID())', [table]);
     return data[0];
@@ -38,6 +48,7 @@ async function updateOneWhere(table, columnMod, columnModVal, columnCheck, colum
 // EXPORTS
 module.exports = {
     selectAll: selectAll,
+    selectOneWhere: selectOneWhere,
     selectLastInsert: selectLastInsert,
     insertOne: insertOne,
     updateOneWhere: updateOneWhere
