@@ -6,34 +6,47 @@ Burgers taste great! But walking to a restaurant to order one can sometimes take
 
 <br>
 
-<h2>Online Instructions</h2>
+<h2>Instructions</h2>
+
+<h3>Online</h3>
 
 Visit https://secure-depths-86726.herokuapp.com/ and eat as many burgers as you want with a preset Burger Logger!
 
 <br>
 
-<h2>Offline Instructions</h2>
+<h3>Offline</h3>
 
 1. Clone the repository to your computer.
-2. In the 'config' folder, create a 'keys.js' file with the following format:
+2. Install the required npm packages with:
 
->// MYSQL KEY
+> npm i
 
->const mySQL = {
+3. In the 'config' folder, rename the 'exampleKeys.js' file to 'keys.js' and replace 'yourusername' and 'yourpassword' with your MySQL username and password respectively.
+4. Run the 'schema.sql' and 'seeds.sql' files either in MySQL Workbench, or in your MySQL terminal.
+5. Visit http://localhost:8080/ and start eating burgers!
 
->    username: 'yourusername',
+<br>
 
->    password: 'yourpassword'
+<h2>API</h2>
 
->};
+> /api/burgers
 
->// EXPORTS
+Returns a list of all the burgers as json objects.
 
->module.exports = {
+> /api/burgers/someid
 
->    mySQL: mySQL
+Returns a specific burger with the given id as a json object.
 
->};
+<br>
 
-3. Run the 'schema.sql' and 'seeds.sql' files either in MySQL Workbench, or in your MySQL terminal.
-4. Visit http://localhost:8080/ and start eating burgers!
+<h2>Dependencies</h2>
+
+Here is a list of dependencies for this project:
+
+* Node.js
+* MySQL
+* Express
+* Express-Handlebars
+* MySQL2
+* jQuery
+* Bootstrap & Bootstrap JS
