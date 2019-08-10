@@ -10,7 +10,7 @@ Burgers taste great! But walking to a restaurant to order one can sometimes take
 
 <h3>Online</h3>
 
-Visit https://secure-depths-86726.herokuapp.com/ and eat as many burgers as you want with a preset Burger Logger!
+Visit https://burgerlogger-ssorpg.herokuapp.com/ and eat as many burgers as you want with a preset Burger Logger!
 
 <br>
 
